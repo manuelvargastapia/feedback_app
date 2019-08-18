@@ -36,3 +36,21 @@ Follow this steps and check the code to build and deploy a simple feedback app t
 ## Deploy
 
 1. Create Heroku account and download-install Heroku CLI. Also, Git version control is needed
+
+2. Run `heroku login` to connect to your account
+
+3. Create Heroku app with `heroku create [app name]`
+
+4. Create a Heroku database using Heroku addons for PostgreSQL: `heroku addons:create heroku-postgresql:hobby-dev --app [app name]`
+
+5. Get new database URL (then, set your SQLALCHEMY_DATABASE_URI for production): `heroku config --app [app name]`
+
+6. Create requirements file with dependencies: `pip freeze > requirements.txt`
+
+7. Create Procfile, so Heroku, as a Paas, will know how to run the app: `touch Procfile` (Unix). Here, we set gunicorn as our server
+
+8. Create runtime file to specify Python version
+
+9. Push everithing to remote git repository
+
+10. 

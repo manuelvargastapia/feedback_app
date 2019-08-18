@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # DATABASE
 ## Switch between environments to set correct database location
-ENV = 'dev'
+ENV = 'prod'
 
 if ENV == 'dev':
     app.debug = True
@@ -15,8 +15,8 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/lexus'
 else:
     app.debug = False
-    # TODO: put prod db here
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+    # Prod database URL from Heroku
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://qqqeffobulirwu:651182646ab6ced4e5e2009d50acca8d4eae16a2280bac29cf0ab53d8762c012@ec2-54-221-198-156.compute-1.amazonaws.com:5432/db2io9252stf3m'
 
 ## Initiaize database after configs
 db = SQLAlchemy(app)
