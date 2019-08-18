@@ -53,4 +53,15 @@ Follow this steps and check the code to build and deploy a simple feedback app t
 
 9. Push everithing to remote git repository
 
-10. 
+10. Add remote repository to Heroku: `heroku git:remote -a [app name]`
+
+11. Push project to Heroku: `git push heroku master`
+
+12. See your creation with `heroku open`. However, it doesn't work, because we aren't created the table yet
+
+13. Create table based in model using REPL, but this time with Heroku. Type `heroku run python` and run the following:
+    - `from app import db`
+    - `db.create_all()`
+    - `exit()`
+
+14. After that, you can see the table with `heroku pg:psql --app [app name]` (after install PostgreSQL in Windows, you'll need to add to PATH, otherwise, this command will not work). Use `select * from feedback;` to see all rows
